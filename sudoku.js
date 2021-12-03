@@ -7,42 +7,40 @@ const fs = require("fs");
 // your solver has tried to solve it.
 // How you represent your board is up to you!
 
+
+// const fs = require('fs')
+// const read = fs.readFileSync('/sudoku-puzzles.txt', 'utf-8').split('\n');
+
 let str = '--5-3--819-285--6-6----4-5---74-283-34976---5--83--49-15--87--2-9----6---26-495-3'
-//Masha's solution :)
-function solve(board) {
+const table = prettyBoard(str)
+console.log(a(table))
 
-  const boardArr = prettyBoard();
-
-  for (let row = 0; row < 81; row++) {
-    for (let column = 0; column < boardArr.length; column++) {
-      if (boardArr[row][column] === '-') {
-        return boardArr[row][column] === Math.floor(Math.random(1) * 9);
-      } else {
-        return boardArr[row][column];
-      }
-    }
-  }
+function a (arr) {
+	for (let j = 0; j < arr.length; j++){
+	for(let i = 0; i < arr.length; i++){
+		
+	return arr[i].map(el => el.replace('-', Math.floor(Math.random(1)*9)))
+	} 
+}
 }
 
-console.log(solve(str));
+function solved(table) {
 
 
-// Returns a boolean indicating whether
-// or not the provided board is solved.
-// The input board will be in whatever
-// form `solve` returns.
-function isSolved(board) {
-
+	for(let i = 0; i < table.length; i++){
+		for(let j = 0; j < 9; j++){
+			if(table[i][j] === '-'){
+				return  table[i][j] = Math.floor(Math.random(1)*9)
+				} else {
+				return table[i][j] = table[i][j]
+			}
+		}
+	}
 }
 
+function prettyBoard (board) {
+	let res = []
 
-// Takes in a board in some form and
-// returns a String that's well formatted
-// for output to the screen.
-// The input board will be in whatever
-// form `solve` returns.
-function prettyBoard(board) {
-  let res = [];
 
   for (let i = 0; i < board.length; i += 9) {
     res.push(board.slice(i, [i + 9]))
@@ -52,13 +50,18 @@ function prettyBoard(board) {
 
 
 }
-console.log(prettyBoard(str))
-  
+
+function isSolved(board) {
+
+}
+
+
+
 
 // Exports all the functions to use them in another file.
 module.exports = {
-
-  solve: solve,
-  isSolved: isSolved,
-  prettyBoard: prettyBoard
+	solved: solved,
+	isSolved: isSolved,
+	prettyBoard: prettyBoard
 }
+
