@@ -1,3 +1,6 @@
+const fs = require("fs");
+
+
 // Takes a board as a string in the format
 // you see in the puzzle file. Returns
 // something representing a board after
@@ -30,12 +33,12 @@ function prettyBoard(board) {
 		for(let i = 0; i < board.length; i+=9){
 			res.push(board.slice(i, [i+9]))
 		}
-
+   
 	return res.map(a=>a.split(''))
-
+ 
 }
 console.log(prettyBoard(str))
-
+  
 
 // Exports all the functions to use them in another file.
 module.exports = {
