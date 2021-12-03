@@ -8,9 +8,23 @@ const fs = require("fs");
 // How you represent your board is up to you!
 
 let str = '--5-3--819-285--6-6----4-5---74-283-34976---5--83--49-15--87--2-9----6---26-495-3'
-function solve(boardString) {
+//Masha's solution :)
+function solve(board) {
 
+  const boardArr = prettyBoard();
+
+  for (let row = 0; row < 81; row++) {
+    for (let column = 0; column < boardArr.length; column++) {
+      if (boardArr[row][column] === '-') {
+        return boardArr[row][column] === Math.floor(Math.random(1) * 9);
+      } else {
+        return boardArr[row][column];
+      }
+    }
+  }
 }
+
+console.log(solve(str));
 
 
 // Returns a boolean indicating whether
@@ -28,21 +42,23 @@ function isSolved(board) {
 // The input board will be in whatever
 // form `solve` returns.
 function prettyBoard(board) {
-	let res = []
+  let res = [];
 
-		for(let i = 0; i < board.length; i+=9){
-			res.push(board.slice(i, [i+9]))
-		}
-   
-	return res.map(a=>a.split(''))
- 
+  for (let i = 0; i < board.length; i += 9) {
+    res.push(board.slice(i, [i + 9]))
+  }
+
+  return res.map(a => a.split(''))
+
+
 }
 console.log(prettyBoard(str))
   
 
 // Exports all the functions to use them in another file.
 module.exports = {
-	solve: solve,
-	isSolved: isSolved,
-	prettyBoard: prettyBoard
+
+  solve: solve,
+  isSolved: isSolved,
+  prettyBoard: prettyBoard
 }
