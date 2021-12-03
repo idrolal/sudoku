@@ -1,8 +1,12 @@
+const fs = require("fs");
+
+
 // Takes a board as a string in the format
 // you see in the puzzle file. Returns
 // something representing a board after
 // your solver has tried to solve it.
 // How you represent your board is up to you!
+
 
 // const fs = require('fs')
 // const read = fs.readFileSync('/sudoku-puzzles.txt', 'utf-8').split('\n');
@@ -22,6 +26,7 @@ function a (arr) {
 
 function solved(table) {
 
+
 	for(let i = 0; i < table.length; i++){
 		for(let j = 0; j < 9; j++){
 			if(table[i][j] === '-'){
@@ -36,11 +41,13 @@ function solved(table) {
 function prettyBoard (board) {
 	let res = []
 
-		for(let i = 0; i < board.length; i+=9){
-			res.push(board.slice(i, [i+9]))
-		}
 
-	return res.map(a=> a.split(''))
+  for (let i = 0; i < board.length; i += 9) {
+    res.push(board.slice(i, [i + 9]))
+  }
+
+  return res.map(a => a.split(''))
+
 
 }
 
@@ -57,3 +64,4 @@ module.exports = {
 	isSolved: isSolved,
 	prettyBoard: prettyBoard
 }
+
