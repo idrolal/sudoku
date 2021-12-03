@@ -3,6 +3,8 @@
 // something representing a board after
 // your solver has tried to solve it.
 // How you represent your board is up to you!
+
+let str = '--5-3--819-285--6-6----4-5---74-283-34976---5--83--49-15--87--2-9----6---26-495-3'
 function solve(boardString) {
 
 }
@@ -23,8 +25,17 @@ function isSolved(board) {
 // The input board will be in whatever
 // form `solve` returns.
 function prettyBoard(board) {
+	let res = []
+
+		for(let i = 0; i < board.length; i+=9){
+			res.push(board.slice(i, [i+9]))
+		}
+
+	return res.map(a=>a.split(''))
 
 }
+console.log(prettyBoard(str))
+
 
 // Exports all the functions to use them in another file.
 module.exports = {
