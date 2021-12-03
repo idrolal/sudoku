@@ -25,13 +25,13 @@ function isSolved(board) {
 // The input board will be in whatever
 // form `solve` returns.
 function prettyBoard(board) {
-	let res = []
+  let res = []
 
-		for(let i = 0; i < board.length; i+=9){
-			res.push(board.slice(i, [i+9]))
-		}
+  for (let i = 0; i < board.length; i += 9) {
+    res.push(board.slice(i, [i + 9]))
+  }
 
-	return res.map(a=>a.split(''))
+  return res.map(a => a.split(''))
 
 }
 console.log(prettyBoard(str))
@@ -39,7 +39,7 @@ console.log(prettyBoard(str))
 
 // Exports all the functions to use them in another file.
 module.exports = {
-	solve: solve,
-	isSolved: isSolved,
-	prettyBoard: prettyBoard
+  solve: solve,
+  isSolved: isSolved,
+  prettyBoard: prettyBoard
 }
